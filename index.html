@@ -126,44 +126,6 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  display: none;
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 1000;
-}
-.top-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 1000;
-  transition: opacity 0.3s ease;
-}
-.top-button {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.top-button.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-    .top-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
   padding: 10px 15px;
   background-color: #007bff;
   color: white;
@@ -174,23 +136,37 @@
   width: auto;
   height: auto;
   white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
   transition: opacity 0.3s ease;
 }
 
+.top-button.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.add-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 999;
+}
+.add-button:hover {
+  background: #218838;
+}
 
   </style>
 </head>
 <body>
 
-
 <button id="scrollTopBtn" class="top-button">Top</button>
-
-
-
-
-<button onclick="document.getElementById('add-stock').scrollIntoView({ behavior: 'smooth' });" class="top-button">
-  ➕ Add New Item
-</button>
+<button onclick="document.getElementById('add-stock').scrollIntoView({ behavior: 'smooth' });" class="add-button">➕ Add New Item</button>
 
   
   <header>
@@ -543,30 +519,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 });
-
-
-// Show "Add New Item" button only when user scrolls near bottom
-document.addEventListener('DOMContentLoaded', () => {
-  const scrollTopBtn = document.getElementById('scrollTopBtn');
-
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const viewportHeight = window.innerHeight;
-    const fullHeight = document.body.scrollHeight;
-
-    if (scrollY + viewportHeight >= fullHeight - 100) {
-      scrollTopBtn.classList.add('show');
-    } else {
-      scrollTopBtn.classList.remove('show');
-    }
-  });
-
-  scrollTopBtn.onclick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-});
-
-
 
     
   </script>
