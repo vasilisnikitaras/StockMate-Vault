@@ -441,6 +441,29 @@
     renderItems();
     renderHistory();
     calculateTotalStock();
+
+
+
+// Show "Add New Item" button only when user scrolls near bottom
+document.addEventListener('DOMContentLoaded', () => {
+  const topButton = document.querySelector('.top-button');
+  topButton.style.display = 'none';
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const fullHeight = document.body.scrollHeight;
+
+    if (scrollY + viewportHeight >= fullHeight - 100) {
+      topButton.style.display = 'block';
+    } else {
+      topButton.style.display = 'none';
+    }
+  });
+});
+
+
+    
   </script>
 </body>
 </html>
