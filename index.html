@@ -100,29 +100,7 @@
     font-size: 16px;
   }
 }
-    .top-button {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background: #007bff;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 5px;
-  z-index: 1000;
-}
-.top-button:hover {
-  background: #0056b3;
-  cursor: pointer;
-}
-@media (max-width: 600px) {
   .top-button {
-    top: 5px;
-    right: 5px;
-    padding: 8px 12px;
-    font-size: 14px;
-  }
-}
-.top-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -145,6 +123,11 @@
   opacity: 1;
   pointer-events: auto;
 }
+
+.top-button:hover {
+  background: #0056b3;
+}
+
 .add-button {
   position: absolute;
   top: 10px;
@@ -166,7 +149,6 @@
 <body>
 
 <button id="scrollTopBtn" class="top-button">Top</button>
-<button onclick="document.getElementById('add-stock').scrollIntoView({ behavior: 'smooth' });" class="add-button">➕ Add New Item</button>
 
   
   <header>
