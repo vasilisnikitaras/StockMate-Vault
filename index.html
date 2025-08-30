@@ -100,10 +100,42 @@
     font-size: 16px;
   }
 }
+    .top-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+.top-button:hover {
+  background: #0056b3;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .top-button {
+    top: 5px;
+    right: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
 
   </style>
 </head>
 <body>
+
+
+
+
+<button onclick="document.getElementById('add-stock').scrollIntoView({ behavior: 'smooth' });" class="top-button">
+  ➕ Add New Item
+</button>
+
+  
   <header>
     <h1>StockMate Vault</h1>
     <select id="language">
