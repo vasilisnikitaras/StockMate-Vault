@@ -122,6 +122,19 @@
     font-size: 14px;
   }
 }
+.top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+}
 
 
   </style>
@@ -129,6 +142,7 @@
 <body>
 
 
+<button id="scrollTopBtn" class="top-button">Top</button>
 
 
 <button onclick="document.getElementById('add-stock').scrollIntoView({ behavior: 'smooth' });" class="top-button">
@@ -348,6 +362,31 @@
       }
       display.textContent = `Total Items: ${total}`;
     }
+
+// Show "Top" button only when user scrolls near bottom
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  scrollTopBtn.style.display = 'none';
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const fullHeight = document.body.scrollHeight;
+
+    if (scrollY + viewportHeight >= fullHeight - 100) {
+      scrollTopBtn.style.display = 'block';
+    } else {
+      scrollTopBtn.style.display = 'none';
+    }
+  });
+
+  scrollTopBtn.onclick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+});
+
+
+    
 
     function renderHistory() {
       const filter = document.getElementById("history-filter").value;
